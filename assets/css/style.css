@@ -377,9 +377,7 @@ transform: scaleY(1.13) scaleX(1.13);
 .location-section, .coordinate-section, .handler-section, .note-section {
 margin-top: 2px;
 }
-.handler-section, .note-section {
-margin-bottom: 2px;
-}
+
 .icon-i {
 display: inline-block;
 width: 18px;
