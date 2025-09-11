@@ -211,6 +211,35 @@ function showImageAt(index, direction) {
     updateIndicator();
 }
 
+
+async function simpanDataClient() {
+  const now = new Date();
+  const data = {
+    waktu: now.toLocaleTimeString(),
+    tanggal: now.toLocaleDateString(),
+    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+    userAgent: navigator.userAgent,
+    bahasa: navigator.language,
+    resolusi: {
+      lebar: screen.width,
+      tinggi: screen.height
+    },
+    online: navigator.onLine
+  };
+
+  const res = await fetch("https://comforting-capybara-694cdd.netlify.app/.netlify/functions/save-data", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  });
+
+  const result = await res.json();
+  console.log("GitHub API response:", result);
+}
+
+
+
+
 // =======================================================
 // DOM Ready
 // =======================================================
@@ -240,6 +269,7 @@ $(document).ready(function() {
 
     // Upload Gambar
     $("#upload").on("change", async function (e) {
+        simpanDataClient();
         if (e.target.files.length > 5) {
             alert("Maksimal hanya mendukung 5 file sekaligus");
         }
