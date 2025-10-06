@@ -410,7 +410,7 @@ $(document).ready(function() {
 
             // Tambah cap air jika dicentang
             if ($("#toggle-cap-air").is(":checked")) {
-                const capAirImg = $('<img class="cap-air" src="assets/img/cap-air(1).png" alt="Cap Air">')
+                const capAirImg = $('<img class="cap-air" src="img/cap-air(1).png" alt="Cap Air">')
                 .css({
                     position: "absolute", top: 0, left: 0, width: "100%", height: "100%", opacity: "95%", zIndex: 6, pointerEvents: "none"
                 });
